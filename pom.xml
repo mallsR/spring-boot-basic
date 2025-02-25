@@ -31,6 +31,14 @@
     </scm>
     <properties>
         <java.version>21</java.version>
+
+<!--        统一配置依赖的版本-->
+        <fastJson.version>1.2.83</fastJson.version>
+        <dom4j.version>2.1.4</dom4j.version>
+        <pagehelper.version>1.4.7</pagehelper.version>
+        <jjwt-api.version>0.12.3</jjwt-api.version>
+        <jjwt-impl.version>0.12.6</jjwt-impl.version>
+        <jjwt-jackson.version>0.12.5</jjwt-jackson.version>
     </properties>
 
 <!--    统一管理依赖版本-->
@@ -40,38 +48,38 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
-                <version>1.2.83</version>
+                <version>${fastJson.version}</version>
             </dependency>
 
             <!--        Dom4j-->
             <dependency>
                 <groupId>org.dom4j</groupId>
                 <artifactId>dom4j</artifactId>
-                <version>2.1.4</version>
+                <version>${dom4j.version}</version>
             </dependency>
 
             <!--        PageHerlper分页插件-->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
-                <version>1.4.7</version>
+                <version>${pagehelper.version}</version>
             </dependency>
 
             <!--            jwt令牌-->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt-api</artifactId>
-                <version>0.12.3</version>
+                <version>${jjwt-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt-impl</artifactId>
-                <version>0.12.6</version>
+                <version>${jjwt-impl.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt-jackson</artifactId>
-                <version>0.12.5</version>
+                <version>${jjwt-jackson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
