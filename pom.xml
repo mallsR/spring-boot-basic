@@ -11,6 +11,9 @@
     <groupId>com.xiaor</groupId>
     <artifactId>tlias-web-management-maven-project</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+<!--    父工程的打包方式需要设置为pom-->
+    <packaging>pom</packaging>
+
     <name>tlias-web-management-maven-project</name>
     <description>tlias-web-management-maven-project</description>
     <url/>
@@ -29,6 +32,50 @@
     <properties>
         <java.version>21</java.version>
     </properties>
+
+<!--    统一管理依赖版本-->
+    <dependencyManagement>
+        <dependencies>
+            <!--        fastJson-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.83</version>
+            </dependency>
+
+            <!--        Dom4j-->
+            <dependency>
+                <groupId>org.dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>2.1.4</version>
+            </dependency>
+
+            <!--        PageHerlper分页插件-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>1.4.7</version>
+            </dependency>
+
+            <!--            jwt令牌-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-api</artifactId>
+                <version>0.12.3</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>0.12.6</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId>
+                <version>0.12.5</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

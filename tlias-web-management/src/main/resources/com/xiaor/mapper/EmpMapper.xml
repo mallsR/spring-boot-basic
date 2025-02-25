@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xiaor.mapper.EmpMapper">
+<!--    条件查询 -->
+    <select id="list" resultType="com.xiaor.pojo.Emp">
+        select *
+        from emp
+        <where>
+            <if test="null != name">
+                name like concat('%', #{name}, '%')
+            </if>
+            <if test="null != gender">
+                and gender = #{gender} 
+            </if>
+            <if test="null != begin and null != end">
+                and entrydate between #{begin} and #{end}
+            </if>
+        </where>
+        order by update_time desc
+    </select>
+
+<!--    删除员工信息-->
+    <delete id="deleteEmp">
+        delete from emp
+        where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+<!--    更新员工信息-->
+    <update id="updateEmp">
+        update emp
+        <set>
+            <if test="null != username and '' != username">
+                username = #{username},
+            </if>
+            <if test="null != password and '' != password">
+                password = #{password},
+            </if>
+            <if test="null != name and '' != name">
+                name = #{name},
+            </if>
+            <if test="null != gender">
+                gender = #{gender},
+            </if>
+            <if test="null != image and '' != image">
+                image = #{image},
+            </if>
+            <if test="null != updateTime">
+                update_time = #{updateTime}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>
